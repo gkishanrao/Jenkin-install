@@ -1,13 +1,21 @@
 
 # Jdk-install
+
+```
 sudo apt install openjdk-17-jdk
 
+```
+
 # Update Java version if already exist different version
+
+```
 sudo update-alternatives --config java
 
+```
 
 # Jenkin-install
 
+```
 sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian/jenkins.io-2023.key
 echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
@@ -17,22 +25,29 @@ sudo apt-get update
 sudo apt-get install jenkins
 ```
 
-EC2 usecases
-
-```
 
 # Restart Jenkins
+
+```
 sudo systemctl daemon-reexec
 sudo systemctl restart jenkins
 
+```
+
+```
 sudo systemctl status jenkins
+
+```
 
 # Check in browser 
 http://<public-ip>:8080/
 
 # To verify or retrieve the initial admin password for Jenkins (used during the first-time setup in the web UI), run this command:
 
+```
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+```
 Generated similar pass code
 1427336fc85b4624aa66c51fa8870297
 
