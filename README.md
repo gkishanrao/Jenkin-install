@@ -1,14 +1,57 @@
-aws-devops-zero-to-hero
+
+# Jdk-install
+sudo apt install openjdk-17-jdk
+
+# Update Java version if already exist different version
+sudo update-alternatives --config java
+
+
+# Jenkin-install
+
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian/jenkins.io-2023.key
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+
+
+# Restart Jenkins
+sudo systemctl daemon-reexec
+sudo systemctl restart jenkins
+
+sudo systemctl status jenkins
+
+# Check in browser 
+http://<public-ip>:8080/
+
+# To verify or retrieve the initial admin password for Jenkins (used during the first-time setup in the web UI), run this command:
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+Generated similar pass code
+1427336fc85b4624aa66c51fa8870297
+
+# Open Jenkins in your browser:
+
+http://<your-server-ip>:8080
+Paste the password into the "Unlock Jenkins" screen.
+
+Continue with the setup wizard (install suggested plugins, create admin user, etc.).
+
+#------------------------------------------------------------------------------------------------------------
+
+# aws-devops-zero-to-hero
 Complete YouTube playlist - https://www.youtube.com/playlist?list=PLdpzxOOAlwvLNOxX0RfndiYSt1Le9azze
 
 AWS zero to hero repo for devops engineers to learn AWS in 30 Days. This repo includes projects, presentations, interview questions and real time examples. Each day's class will provide real-time knowledge on AWS services, allowing you to apply what you've learned and gain practical skills in working with AWS in a DevOps context.
 
-Day 1: Introduction to AWS
+# Day 1: Introduction to AWS
 You will learn what is private and public cloud. Why companies are moving to public cloud, what are the advantages of moving to cloud.
 
 Also, you will be introduced to the basics of AWS, including the core services and their significance in DevOps practices. Finally learn how to set up an AWS account and navigate the AWS Management Console.
 
-Day 2: IAM (Identity and Access Management)
+$ Day 2: IAM (Identity and Access Management)
 You will explore IAM, which is used for managing access to AWS resources. You'll learn how to create IAM users, groups, and roles, and how to apply permissions and security best practices to ensure proper access control.
 
 Day 3: EC2 Instances
